@@ -4,16 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        function check() {
+            //제목, 내용 비어있지 않아야함
+            // 이름 두 글자 이상
+            let title = document.form1.title;
+            // title.value는 Object, value는 문자열
+            if (title.value == '') {
+                alert("제목 입력해!");
+                title.focus();
+                return false;
+            }
+
+            let uname = document.form1.name;
+            if (uname.value == '') {
+                alert("이름 입력해!");
+                title.focus();
+                return false;
+            }
+
+            if (uname.value.length < 2) {
+                alert("이름은 2글자이상 입력하세요!")
+                uname.value.focus();
+                return false;
+            }
+        }
+    </script>
 </head>
 <body>
-    <form>
+    <form name="form1" onsubmit="return check()">
         제목:
-        <input type="text" name="title" id="title"><br>
+        <input type="text" name="title"/><br>
         이름:
-        <input type="text" name="name" id="name"><br>
+        <input type="text" name="uname"/><br>
         내용:
-        <input type="text" name="content" id="content"><br>
-        <input type="submit">
+        <textarea name="content" cols="20" rows="5"></textarea><br>
+        <input type="submit" value="저장"/>
     </form>
     
 </body>
