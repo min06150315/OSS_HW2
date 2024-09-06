@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo" onclick="aaa()">Hello World!!!</p>
+    <p id="demo2">Hello World!!!</p>
+</body>
+</html>
+
+<script>
+    function aaa() {
+        let pobj = document.getElementById("demo");
+        pobj.innerHTML = '<a href="https://www.naver.com"> naver </a>';
+    }
+
+    let demo2 = document.getElementById("demo2");
+    demo2.innerText = "환영합니다";
+    demo2.addEventListener("click", function () {
+        alert("환영할까요?");
+    });
+
+    // demo2.addEventListener("click", () => { alert("환영할까요?"); });
+</script>
