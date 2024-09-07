@@ -5,9 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        #fruit {
+            background-color: #E7F0FF;
+            border: 1px solid black;
+            width: 150px;
+            padding-top: 4px;
+            padding-left: 5px;
+        }
         button {
             color: white;
-            padding: 0px 10px;
+            padding: 0px 13px;
+            cursor: pointer;
         }
         #btn1 {
             background-color: blue;
@@ -15,40 +23,58 @@
         #btn2 {
             background-color: green;
         }
+        li, input {
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-    <h2>Dynamic Web page</h2>
+    <h1>Dynamic Web page</h1>
     <input type="text" id="fruit" name="fruit"/>
     
     <button id="btn1">추가</button>
     <button id="btn2">삭제</button>
 
-    <div id="fruit-list">
-
-    </div>
+    <div id="list"></div>
 </body>
 </html>
 
 <script>
-    let text = document.getElementById("fruit").value;
-    
-
-
+    // list라는 id를 가진 요소 불러오기
+    let result = document.getElementById("list");
     function addList() {
-        document.getElementById("fruit-list").innerText = text
+        // 리스트 초기화 
+        deleteList();
+        // 유저가 입력한 텍스트 값 불러오기
+        let text = document.getElementById("fruit").value;
+
+        // 입력한 텍스트에서 쉼표를 기준으로 나누고 앞 뒤 공백 제거하고 list에 저장하기
+        let list = text.split(",").map(function(item) {
+            return item.trim();
+        });
+
+        // ul 만들기
+        let ul = document.createElement("ul");
+
+        // list에 있는 요소들 하나식 li로 만들어서 ul안에 넣기
+        list.forEach(function(item) {
+            let li = document.createElement("li");
+            li.textContent = item;
+            ul.appendChild(li);
+        })
+        // 최종적으로 완성된 ul 출력하기
+        result.appendChild(ul);
     }
 
+    // 리스트 초기화(삭제) 함수
     function deleteList() {
-        alert("bye");
+        result.innerHTML = "";
     }
 
+    // 버튼들의 이벤트 리스너
     let btn1 = document.getElementById("btn1");
     btn1.addEventListener("click", addList);
 
     let btn2 = document.getElementById("btn2");
     btn2.addEventListener("click", deleteList);
-
-    
-
 </script>
