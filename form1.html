@@ -1,9 +1,10 @@
+<!--CSS를 적용하지 않은 Form 페이지-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSS Assignment#2</title>
+    <title>OSS Assignment#2-1</title>
 </head>
 <body>
     <label for="firstname">First name</label><br>
@@ -26,15 +27,27 @@
     <input type="text" id="addr2" name="addr2" placeholder="Apartment or suite"/><br><br>
 
     <label for="country">Country</label><br>
-    <select name="country">
+    <select name="country" id="country">
         <option value="1" selected>Choose...</option>
         <option value="2">United States</option>
     </select><br><br>
 
     <label for="state">State</label><br>
-    <select name="state">
-        <option value="1" selected>Choose...</option>
-        <option value="2">California</option>
+    <select name="state" id="state">
+        <option value="0" selected>Choose...</option>
+        <optgroup label="East">
+            <option value="1">New York</option>
+            <option value="2">Pennsylvania</option>
+            <option value="3">Virginia</option>
+            <option value="4">New Jersey</option>
+        </optgroup>
+
+        <optgroup label="West">
+            <option value="5">California</option>
+            <option value="6">Washington</option>
+            <option value="7">Nevada</option>
+            <option value="8">Arizona</option>
+        </optgroup>
     </select><br><br>
 
     <label for="zip">Zip</label><br>
@@ -44,6 +57,7 @@
 
     <input type="checkbox" id="check1" name="check1"/>
     <label for="check1">Shipping address is the same as my biling address</label><br>
+
     <input type="checkbox" id="check2" name="check2"/>
     <label for="check2">Save this information for next times</label><br><br>
 
@@ -71,17 +85,34 @@
 
     <hr><br>
 
+    <fieldset>
+        <legend>선택사항</legend>
+
+        <label for="birth">생년월일</label><br>
+        <input type="date" id="birth" name="birth"/><br><br>
+
+        
+
+        <label for="color">선호하는 색</label><br>
+        <input type="color" id="color" name="color"/><br><br>
+
+        <label>좋아하는 축구 팀:</label>
+        <input list="football" id="fc" name="fc">
+        <datalist id="football">
+            <option value="Man City"></option>
+            <option value="Man UTD"></option>
+            <option value="Chelsea"></option>
+            <option value="LiverPool"></option>
+            <option value="Arsenal"></option>
+            <option value="Tottenham"></option>
+        </datalist><br><br>
+
+        <label for="request">추가 요청사항</label><br>
+        <textarea name="request" id="request"></textarea><br><br>
+    </fieldset>
+
+    <hr><br>
+
     <input type="submit" value="Continue to checkout">
-
-    
-
-    
-
-    
-
-
-
-
-
 </body>
 </html>
