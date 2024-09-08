@@ -1,0 +1,575 @@
+<!--JavaScript & CSS 를 적용한 form.html (+ 입력항목에 대해서 Validation Check 추가)-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSS Assignment#2-1</title>
+    <style>
+        body {
+            background-color: #F8F9FA;
+            color: #212529;
+        }
+        input {
+            border: 1px solid #ced4da;
+            line-height: 1.5;
+            padding: 6px 12px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        input:focus {
+            border-color: #A4BEF8;
+            box-shadow: 0 0 8px rgba(17, 86, 224, 0.8);
+            outline: none;
+        }
+        select {
+            border: 1px solid #ced4da;
+            line-height: 1.5;
+            padding: 8px 12px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        select:focus {
+            border-color: #A4BEF8;
+            box-shadow: 0 0 8px rgba(17, 86, 224, 0.8);
+            outline: none;
+        }
+        textarea {
+            border: 1px solid #ced4da;
+            line-height: 1.5;
+            padding: 6px 12px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        textarea:focus {
+            border-color: #A4BEF8;
+            box-shadow: 0 0 8px rgba(17, 86, 224, 0.8);
+            outline: none;
+        }
+        hr {
+            border: none;
+            height: 0.5px;
+            background-color: #C3C4C5;
+        }
+        #title {
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 40px;
+            font-size: 120%;
+        }
+        #bootstrap-logo {
+            background-color: #7813F7;
+            width: 60px;
+            height: 60px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            margin-left: 590px;
+        }
+        #logo-title {
+            color: white;
+            font-size: 250%;
+        }
+        #form {
+            float: left;
+            margin-left: 155px;
+            width: 48.5%;
+        }
+        #group1 {
+            width: 100%;
+        }
+        #first {
+            float: left;
+        }
+        #second {
+            margin-left: 310px;
+        }
+        #firstname {
+            width: 270px;
+        }
+        #lastname {
+            width: 270px;
+        }
+        #userinput {
+            border-radius: 0px 5px 5px 0px;
+            width: 89.5%;
+        }
+        #aaa {
+            float: left;
+            border: 1px solid #ced4da;
+            background-color: #e9ecef;
+            padding: 5.5px 10px;
+            border-radius: 5px 0px 0px 5px;
+            margin-top: 10px;
+        }
+        #email {
+            width: 97.7%;
+        }
+        #addr {
+            width: 97.7%;
+        }
+        #addr2 {
+            width: 97.7%;
+        }
+        #group2 {
+            margin-bottom: 10px;
+        }
+        #country {
+            float: left;
+            width: 260px;
+        }
+        #state {
+            float: left;
+            width: 208px;
+        }
+        #country-btn {
+            width: 245px;
+        }
+        #state-btn {
+            width: 195px;
+        }
+        #zip-btn {
+            width: 110px;
+        }
+        #namecard {
+            float: left;
+            width: 320px;
+        }
+        #namecard-btn {
+            width: 270px;
+        }
+        #sub {
+            font-size: 90%;
+        }
+        #cardnum {
+            margin-left: 20px;
+        }
+        #cardnum-btn {
+            width: 258px;
+        }
+        #group4 {
+            margin-bottom: 15px;
+        }
+        #expiration {
+            float: left;
+        }
+        #expiration-btn {
+            width: 110px;
+        }
+        #cvv {
+            margin-left: 160px;
+        }
+        #cvv-btn {
+            width: 110px;
+        }
+        #fieldset {
+            margin-bottom: 10px;
+        }
+        #field {
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        #button {
+            color: white;
+            font-size: 120%;
+            background-color: #0d6efd;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+            width: 100%;
+            padding: 9px;
+        }
+        #button:hover {
+            background-color: #0a58ca;
+        }
+        #bottom {
+            margin-left: 350px;
+            margin-top: 100px;
+            margin-bottom: 50px;
+            color: #6c757d;
+            line-height: 25px
+        }
+        a {
+            color: #0d6efd;
+            margin-right: 10px;
+        }
+        #bottom-link {
+            margin-left: 20px;
+        }
+        #cart {
+            margin-left: 810px;
+            margin-top: 70px;
+        }
+        #cart-top {
+            margin-bottom: 20px;
+        }
+        #cart-title {
+            float: left;
+            color: #0B6EFD;
+        }
+        #cart-num {
+            margin-left: 230px;
+            background-color: #0B6EFD;
+            color: white;
+            width: 33px;
+            height: 33px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #cart-list {
+            width: 270px;
+            background-color: #FFFFFF;
+        }
+        #item-top{
+            border: 1px solid #DFDFDF;
+            border-radius: 10px 10px 0px 0px;
+            padding: 10px;
+        }
+        #item-middle {
+            padding: 10px;
+            border: 1px solid #DFDFDF;
+        }
+        #item-bottom {
+            border: 1px solid #DFDFDF;
+            border-radius: 0px 0px 10px 10px;
+            padding: 10px;
+        }
+        #item-name {
+            float: left;
+        }
+        #item-price {
+            margin-left: 215px;
+            color: #6c757d;
+        }
+        #item-content {
+            color: #6c757d;
+            font-size: 90%;
+        }
+        #cart-submit {
+            background-color: #FFFFFF;
+            border: 1px solid #D2D2D2;
+            border-radius: 5px;
+            width: 270px;
+            height: 60px;
+            margin-top: 10px;
+        }
+        #cart-input {
+            padding: 0px 0px 8px 8px;
+        }
+        #input-promo {
+            border-radius: 5px 0px 0px 5px;
+            font-size: 90%;
+            float: left;
+            width: 150px;
+            height: 26px;
+        }
+        #input-redeem {
+            background-color: #6c757d;
+            color: white;
+            font-size: 90%;
+            border-radius: 0px 5px 5px 0px;
+            height: 39.7px;
+            cursor: pointer;
+        }
+        #input-redeem:hover {
+            background-color: #5C636A;
+        }
+        .main-title {
+            font-size: 170%;
+            line-height: 10px;
+        }
+        .sub-title {
+            font-size: 150%;
+        }
+        .item-promo {
+            background-color: #F8F9FA;
+        }
+        .promo-color {
+            color: #1A8754 !important;
+        }
+        .total-color {
+            color: black !important;
+        }
+        .option-color {
+            color: #6C757D;
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <div id="title">
+        <div id="bootstrap-logo">
+            <p id="logo-title">B</p>
+        </div>
+        <p class="main-title">Checkout form</p>
+        <p>
+            Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a <br>
+            validation state that can be triggered by attempting to submit the form without completing it.
+        </p>
+    </div>
+    
+    <form id="form">
+        <p class="sub-title">Biling address</p>
+        <div id="group1">
+            <div id="first">
+                <label for="firstname">First name</label><br>
+                <input type="text" id="firstname" name="firstname" required/><br><br>
+            </div>
+            <div id="second">
+                <label for="lastname">Last name</label><br>
+                <input type="text" id="lastname" name="lastname" required/><br><br>
+            </div>
+        </div>
+        <div id="username">
+            <label for="userinput">Username</label><br>
+            <span id="aaa">@</span>
+            <input type="text" id="userinput" name="userinput" placeholder="Username" required/><br><br>
+        </div>
+        <div id="email-content">
+            <label for="email">
+                Email <p class="option-color">(Optional)</p>
+            </label><br>
+            <input type="text" id="email" name="email" placeholder="you@example.com"/><br><br>
+        </div>
+        <div id="addr-content">
+            <label for="addr">Address</label><br>
+            <input type="text" id="addr" name="addr" placeholder="1234 Main St" required/><br><br>
+        </div>
+        <div id="addr2-content">
+            <label for="addr2">Address 2 <p class="option-color">(Optional)</p></label><br>
+            <input type="text" id="addr2" name="addr2" placeholder="Apartment or suite"/><br><br>
+        </div>
+        <div id="group2">
+            <div id="country">
+                <label for="country-btn">Country</label><br>
+                <select name="country-btn" id="country-btn" required>
+                    <option value="1" selected>Choose...</option>
+                    <option value="2">United States</option>
+                </select><br><br>
+            </div>
+            <div id="state">
+                <label for="state-btn">State</label><br>
+                <select name="state-btn" id="state-btn" required>
+                    <option value="0" selected>Choose...</option>
+                    <optgroup label="East">
+                        <option value="1">New York</option>
+                        <option value="2">Pennsylvania</option>
+                        <option value="3">Virginia</option>
+                        <option value="4">New Jersey</option>
+                    </optgroup>
+                    <optgroup label="West">
+                        <option value="5">California</option>
+                        <option value="6">Washington</option>
+                        <option value="7">Nevada</option>
+                        <option value="8">Arizona</option>
+                    </optgroup>
+                </select><br><br>
+            </div>
+            <div id="zip">
+                <label for="zip-btn">Zip</label><br>
+                <input type="text" id="zip-btn" name="zip-btn" required/><br><br>
+            </div>
+        </div>
+
+        <hr><br>
+
+        <div id="checkbox">
+            <input type="checkbox" id="check1" name="check1"/>
+            <label for="check1">Shipping address is the same as my biling address</label><br>
+
+            <input type="checkbox" id="check2" name="check2"/>
+            <label for="check2">Save this information for next times</label><br><br>
+        </div>
+
+        <hr>
+
+        <div id="payment">
+            <p class="sub-title">Payment</p>
+            <input type="radio" id="credit" name="payment" checked/>
+            <label for="credit">Credit card</label><br>
+            <input type="radio" id="debit" name="payment"/>
+            <label for="debit">Debit card</label><br>
+            <input type="radio" id="paypal" name="payment"/>
+            <label for="paypal">PayPal</label><br><br>
+        </div>
+        <div id="group3">
+            <div id="namecard">
+                <label for="namecard-btn">Name on card</label><br>
+                <input type="text" id="namecard-btn" name="namecard-btn" required/><br>
+            </div>
+            <div id="cardnum">
+                <label for="cardnum-btn">Credit card number</label><br>
+                <input type="text" id="cardnum-btn" name="cardnum-btn" required/>
+            </div>
+            <p id="sub" class="option-color">Full name as displayed on card</p>
+        </div><br>
+        <div id="group4">
+            <div id="expiration">
+                <label for="expiration-btn">Expiration</label><br>
+                <input type="text" id="expiration-btn" name="expiration-btn" required/><br><br>
+            </div>
+            <div id="cvv">
+                <label for="cvv-btn">CVV</label><br>
+                <input type="text" id="cvv-btn" name="cvv-btn" required/><br><br>
+            </div>
+        </div>
+
+        <hr><br>
+
+        <div id="fieldset">
+            <fieldset id="field">
+                <legend>선택사항</legend>
+                <div id="birth-content">
+                    <label for="birth">생년월일</label><br>
+                    <input type="date" id="birth" name="birth"/>
+                </div><br>
+                <div id="color-content">
+                    <label for="color">선호하는 색</label><br>
+                    <input type="color" id="color" name="color"/>
+                </div><br>
+                <div id="fc-content">
+                    <label for="fc">좋아하는 축구 팀</label><br>
+                    <input list="football" id="fc" name="fc">
+                    <datalist id="football">
+                        <option value="Man City"></option>
+                        <option value="Man UTD"></option>
+                        <option value="Chelsea"></option>
+                        <option value="LiverPool"></option>
+                        <option value="Arsenal"></option>
+                        <option value="Tottenham"></option>
+                    </datalist>
+                </div><br>
+                <div id="request-content">
+                    <label for="request">추가 요청사항</label><br>
+                    <textarea name="request" id="request"></textarea>
+                </div>
+            </fieldset>
+        </div><br> 
+
+        <hr><br>
+
+        <input type="submit" value="Continue to checkout" id="button">
+        <div id="bottom">
+            © 2017–2022 Company Name<br>
+            <div id="bottom-link">
+                <a href="">Privacy</a>
+                <a href="">Terms</a>
+                <a href="">Support</a>
+            </div>
+        </div>
+    </form>
+    <div id="cart">
+        <div id="cart-top">
+            <div id="cart-title" class="sub-title">Your Cart</div>
+            <div id="cart-num"><b>3</b></div>
+        </div>
+        <div id="cart-list">
+            <div id="item-top">
+                <div id="item-name">Product name</div>
+                <div id="item-price">$12</div>
+                <div id="item-content">Brief description</div>
+            </div>
+            <div id="item-middle">
+                <div id="item-name">Second product</div>
+                <div id="item-price">&nbsp;&nbsp;$8</div>
+                <div id="item-content">Brief description</div>
+            </div>
+            <div id="item-middle">
+                <div id="item-name">Third item</div>
+                <div id="item-price">&nbsp;&nbsp;$5</div>
+                <div id="item-content">Brief description</div>
+            </div>
+            <div id="item-middle" class="item-promo">
+                <div id="item-name" class="promo-color">Promo code</div>
+                <div id="item-price" class="promo-color">−$5</div>
+                <div id="item-content" class="promo-color">EXAMPLECODE</div>
+            </div>
+            <div id="item-bottom">
+                <div id="item-name">Total (USD)</div>
+                <div id="item-price" class="total-color"><b>$20</b></div>
+            </div>
+        </div>
+        <div id="cart-submit">
+            <div id="cart-input">
+                <input type="text" id="input-promo" name="promocode" placeholder="Promo code">
+                <input type="submit" id="input-redeem" value="Redeem">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    // form의 제출 버튼 클릭 시 이벤트 함수 발생
+    document.getElementById("form").addEventListener("submit", function(event) {
+        let isValid = true;
+        // 필수 입력 값 가져오기
+        let firstname = document.getElementById("firstname").value;
+        let lastname = document.getElementById("lastname").value;
+        let userinput = document.getElementById("userinput").value;
+        let email = document.getElementById("email").value;
+        let addr = document.getElementById("addr").value;
+        let country = document.getElementById("country-btn").value;
+        let state = document.getElementById("state-btn").value;
+        let zip = document.getElementById("zip-btn").value;
+        let namecard = document.getElementById("namecard-btn").value;
+        let cardnum = document.getElementById("cardnum-btn").value;
+        let expiration = document.getElementById("expiration-btn").value;
+        let cvv = document.getElementById("cvv-btn").value;
+
+        // 입력 값들 Validation Check 하기
+        if (firstname.trim() === '' || lastname.trim() === '' || userinput.trim() === '' 
+        || addr.trim() === '' || country.trim() === '' || state.trim() === '' || zip.trim() === '' 
+        || namecard.trim() === '' || cardnum.trim() === '') {
+            isValid = false;
+        }
+        
+        // 입력 값들 중 양식 맞춰야 하는 것들 Validation Check 하기
+        //  이메일 Validation Check 하기
+        if (email.trim() !== '' && !checkEmail(email)) {
+            isValid = false;
+        }
+
+        //  카드 Expiration Validation Check 하기
+        if (expiration.trim() !== '' && !checkExpiration(expiration)) {
+            isValid = false;
+        }
+
+        //  카드 CVV 번호 Validation Check 하기
+        if (cvv.trim() !== '' && !checkCVV(cvv)) {
+            isValid = false;
+        }
+
+        // Alert Message 보내기
+        if (!isValid) {
+            event.preventDefault();
+            alert("Validation Check!!")
+        } else {
+            alert("Submit Success!!");
+        }
+    });
+
+    // 이메일 입력 양식 체크 하는 함수
+    function checkEmail(email) {
+        let check = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return check.test(email);
+    }
+
+    // Expiration 입력 양식 체크 하는 함수
+    function checkExpiration(expiration) {
+        let check = /^\d{2}\/\d{2}$/;
+        return check.test(expiration);
+    }
+
+    // CVV 입력 양식 체크 하는 함수
+    function checkCVV(cvv) {
+        let check = /^\d{3}$/;
+        return check.test(cvv);
+    }
+</script>
