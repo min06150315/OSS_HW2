@@ -8,27 +8,69 @@
     <style>
         body {
             background-color: #F8F9FA;
+            color: #212529;
         }
         input {
             border: 1px solid #ced4da;
             line-height: 1.5;
             padding: 6px 12px;
             border-radius: 5px;
+            margin-top: 10px;
+        }
+        input:focus {
+            border-color: #A4BEF8;
+            box-shadow: 0 0 8px rgba(17, 86, 224, 0.8);
+            outline: none;
         }
         select {
             border: 1px solid #ced4da;
             line-height: 1.5;
             padding: 8px 12px;
             border-radius: 5px;
+            margin-top: 10px;
+        }
+        select:focus {
+            border-color: #A4BEF8;
+            box-shadow: 0 0 8px rgba(17, 86, 224, 0.8);
+            outline: none;
         }
         textarea {
             border: 1px solid #ced4da;
             line-height: 1.5;
             padding: 6px 12px;
             border-radius: 5px;
+            margin-top: 10px;
+        }
+        textarea:focus {
+            border-color: #A4BEF8;
+            box-shadow: 0 0 8px rgba(17, 86, 224, 0.8);
+            outline: none;
+        }
+        hr {
+            border: none;
+            height: 0.5px;
+            background-color: #C3C4C5;
         }
         #title {
             text-align: center;
+            margin-top: 50px;
+            margin-bottom: 40px;
+            font-size: 120%;
+        }
+        #bootstrap-logo {
+            background-color: #7813F7;
+            width: 60px;
+            height: 60px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            margin-left: 590px;
+        }
+        #logo-title {
+            color: white;
+            font-size: 250%;
         }
         #form {
             float: left;
@@ -50,9 +92,6 @@
         #lastname {
             width: 270px;
         }
-        #username {
-            
-        }
         #userinput {
             border-radius: 0px 5px 5px 0px;
             width: 89.5%;
@@ -63,6 +102,7 @@
             background-color: #e9ecef;
             padding: 5.5px 10px;
             border-radius: 5px 0px 0px 5px;
+            margin-top: 10px;
         }
         #email {
             width: 97.7%;
@@ -74,62 +114,64 @@
             width: 97.7%;
         }
         #group2 {
-
+            margin-bottom: 10px;
         }
         #country {
             float: left;
+            width: 260px;
         }
         #state {
             float: left;
+            width: 208px;
         }
-        #zip {
-
+        #country-btn {
+            width: 245px;
         }
-        #checkbox {
-
+        #state-btn {
+            width: 195px;
         }
-        #payment {
-
-        }
-        #group3 {
-
+        #zip-btn {
+            width: 110px;
         }
         #namecard {
             float: left;
+            width: 320px;
+        }
+        #namecard-btn {
+            width: 270px;
         }
         #sub {
-            font-size: 70%;
+            font-size: 90%;
         }
         #cardnum {
             margin-left: 20px;
         }
+        #cardnum-btn {
+            width: 258px;
+        }
         #group4 {
-
+            margin-bottom: 15px;
         }
         #expiration {
             float: left;
         }
+        #expiration-btn {
+            width: 110px;
+        }
         #cvv {
-
+            margin-left: 160px;
+        }
+        #cvv-btn {
+            width: 110px;
         }
         #fieldset {
-            
+            margin-bottom: 10px;
         }
         #field {
-            border: 1px solid black;
+            border: 1px solid #ced4da;
             border-radius: 5px;
-        }
-        #birth {
-
-        }
-        #color {
-
-        }
-        #fc {
-
-        }
-        #request {
-
+            padding: 20px;
+            background-color: #f9f9f9;
         }
         #button {
             color: white;
@@ -139,10 +181,15 @@
             border-radius: 7px;
             cursor: pointer;
             width: 100%;
+            padding: 9px;
+        }
+        #button:hover {
+            background-color: #0a58ca;
         }
         #bottom {
             margin-left: 350px;
             margin-top: 100px;
+            margin-bottom: 50px;
             color: #6c757d;
             line-height: 25px
         }
@@ -155,27 +202,112 @@
         }
         #cart {
             margin-left: 810px;
+            margin-top: 70px;
         }
         #cart-top {
-
+            margin-bottom: 20px;
         }
         #cart-title {
-
+            float: left;
+            color: #0B6EFD;
         }
         #cart-num {
-
+            margin-left: 230px;
+            background-color: #0B6EFD;
+            color: white;
+            width: 33px;
+            height: 33px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         #cart-list {
-
+            width: 270px;
+            background-color: #FFFFFF;
         }
-        #promo-code {
-
+        #item-top{
+            border: 1px solid #DFDFDF;
+            border-radius: 10px 10px 0px 0px;
+            padding: 10px;
+        }
+        #item-middle {
+            padding: 10px;
+            border: 1px solid #DFDFDF;
+        }
+        #item-bottom {
+            border: 1px solid #DFDFDF;
+            border-radius: 0px 0px 10px 10px;
+            padding: 10px;
+        }
+        #item-name {
+            float: left;
+        }
+        #item-price {
+            margin-left: 215px;
+            color: #6c757d;
+        }
+        #item-content {
+            color: #6c757d;
+            font-size: 90%;
+        }
+        #cart-submit {
+            background-color: #FFFFFF;
+            border: 1px solid #D2D2D2;
+            border-radius: 5px;
+            width: 270px;
+            height: 60px;
+            margin-top: 10px;
+        }
+        #cart-input {
+            padding: 0px 0px 8px 8px;
+        }
+        #input-promo {
+            border-radius: 5px 0px 0px 5px;
+            font-size: 90%;
+            float: left;
+            width: 150px;
+            height: 26px;
+        }
+        #input-redeem {
+            background-color: #6c757d;
+            color: white;
+            font-size: 90%;
+            border-radius: 0px 5px 5px 0px;
+            height: 39.7px;
+            cursor: pointer;
+        }
+        #input-redeem:hover {
+            background-color: #5C636A;
+        }
+        .main-title {
+            font-size: 170%;
+            line-height: 10px;
+        }
+        .sub-title {
+            font-size: 150%;
+        }
+        .item-promo {
+            background-color: #F8F9FA;
+        }
+        .promo-color {
+            color: #1A8754 !important;
+        }
+        .total-color {
+            color: black !important;
+        }
+        .option-color {
+            color: #6C757D;
+            display: inline;
         }
     </style>
 </head>
 <body>
     <div id="title">
-        <h2>Checkout form</h2>
+        <div id="bootstrap-logo">
+            <p id="logo-title">B</p>
+        </div>
+        <p class="main-title">Checkout form</p>
         <p>
             Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a <br>
             validation state that can be triggered by attempting to submit the form without completing it.
@@ -183,7 +315,7 @@
     </div>
     
     <div id="form">
-        <h4>Biling address</h4>
+        <p class="sub-title">Biling address</p>
         <div id="group1">
             <div id="first">
                 <label for="firstname">First name</label><br>
@@ -200,7 +332,9 @@
             <input type="text" id="userinput" name="username" placeholder="Username"/><br><br>
         </div>
         <div id="email">
-            <label for="email">Email (Optional)</label><br>
+            <label for="email">
+                Email <p class="option-color">(Optional)</p>
+            </label><br>
             <input type="text" id="email" name="email" placeholder="you@example.com"/><br><br>
         </div>
         <div id="addr">
@@ -208,20 +342,20 @@
             <input type="text" id="addr" name="addr" placeholder="1234 Main St"/><br><br>
         </div>
         <div id="addr2">
-            <label for="addr2">Address 2 (Optional)</label><br>
+            <label for="addr2">Address 2 <p class="option-color">(Optional)</p></label><br>
             <input type="text" id="addr2" name="addr2" placeholder="Apartment or suite"/><br><br>
         </div>
         <div id="group2">
             <div id="country">
                 <label for="country">Country</label><br>
-                <select name="country" id="country">
+                <select name="country" id="country-btn">
                     <option value="1" selected>Choose...</option>
                     <option value="2">United States</option>
                 </select><br><br>
             </div>
             <div id="state">
                 <label for="state">State</label><br>
-                <select name="state" id="state">
+                <select name="state" id="state-btn">
                     <option value="0" selected>Choose...</option>
                     <optgroup label="East">
                         <option value="1">New York</option>
@@ -239,7 +373,7 @@
             </div>
             <div id="zip">
                 <label for="zip">Zip</label><br>
-                <input type="text" id="zip" name="zip"/><br><br>
+                <input type="text" id="zip-btn" name="zip"/><br><br>
             </div>
         </div>
 
@@ -256,7 +390,7 @@
         <hr>
 
         <div id="payment">
-            <h4>Payment</h4>
+            <p class="sub-title">Payment</p>
             <input type="radio" id="credit" name="payment" checked/>
             <label for="credit">Credit card</label><br>
             <input type="radio" id="debit" name="payment"/>
@@ -267,22 +401,22 @@
         <div id="group3">
             <div id="namecard">
                 <label for="namecard">Name on card</label><br>
-                <input type="text" id="namecard" name="namecard"/><br>
+                <input type="text" id="namecard-btn" name="namecard"/><br>
             </div>
             <div id="cardnum">
                 <label for="cardnum">Credit card number</label><br>
-                <input type="text" id="cardnum" name="cardnum"/>
+                <input type="text" id="cardnum-btn" name="cardnum"/>
             </div>
-            <p id="sub">Full name as displayed on card</p>
+            <p id="sub" class="option-color">Full name as displayed on card</p>
         </div><br>
         <div id="group4">
             <div id="expiration">
                 <label for="expiration">Expiration</label><br>
-                <input type="text" id="expiration" name="expiration"/><br><br>
+                <input type="text" id="expiration-btn" name="expiration"/><br><br>
             </div>
             <div id="cvv">
                 <label for="cvv">CVV</label><br>
-                <input type="text" id="cvv" name="cvv"/><br><br>
+                <input type="text" id="cvv-btn" name="cvv"/><br><br>
             </div>
         </div>
 
@@ -331,38 +465,41 @@
         </div>
     </div>
     <div id="cart">
-        <h4 id="cart-top">
-            <span id="cart-title">Your Cart</span>
-            <span id="cart-num">3</span>
-        </h4>
+        <div id="cart-top">
+            <div id="cart-title" class="sub-title">Your Cart</div>
+            <div id="cart-num"><b>3</b></div>
+        </div>
         <div id="cart-list">
-            <div id="item">
-                <p>Product name</p>
-                <p>$12</p>
-                <p>Brief description</p>
+            <div id="item-top">
+                <div id="item-name">Product name</div>
+                <div id="item-price">$12</div>
+                <div id="item-content">Brief description</div>
             </div>
-            <div>
-                Second product
-                Brief description
-                $8
+            <div id="item-middle">
+                <div id="item-name">Second product</div>
+                <div id="item-price">&nbsp;&nbsp;$8</div>
+                <div id="item-content">Brief description</div>
             </div>
-            <div>
-                Third item
-                Brief description
-                $5
+            <div id="item-middle">
+                <div id="item-name">Third item</div>
+                <div id="item-price">&nbsp;&nbsp;$5</div>
+                <div id="item-content">Brief description</div>
             </div>
-            <div>
-                Promo code
-                EXAMPLECODE
-                −$5
+            <div id="item-middle" class="item-promo">
+                <div id="item-name" class="promo-color">Promo code</div>
+                <div id="item-price" class="promo-color">−$5</div>
+                <div id="item-content" class="promo-color">EXAMPLECODE</div>
             </div>
-            <div>
-                Total (USD)
-                $20
+            <div id="item-bottom">
+                <div id="item-name">Total (USD)</div>
+                <div id="item-price" class="total-color"><b>$20</b></div>
             </div>
         </div>
-        <div id="promo-code">
-            Redeem
+        <div id="cart-submit">
+            <div id="cart-input">
+                <input type="text" id="input-promo" name="promocode" placeholder="Promo code">
+                <input type="submit" id="input-redeem" value="Redeem">
+            </div>
         </div>
     </div>
 </body>
